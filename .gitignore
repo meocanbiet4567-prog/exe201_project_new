@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# Environment files (NEVER commit these!)
+.env
+.env.local
+.env.*.local
+
+# Google service account keys (NEVER commit!)
+*.json
+!package.json
+!package-lock.json
+!tsconfig.json
+!eslint.config.js
+
+# Build outputs
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Vite
+.vite/
+
+# Agent files
+.agent/

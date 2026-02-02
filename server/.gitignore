@@ -1,0 +1,6 @@
+# Node
+node_modules
+.env
+
+# Ignore google service account (đúng đường dẫn)
+server/pro-lattice-486104-t5-26150fda95f2.json
