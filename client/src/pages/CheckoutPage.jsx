@@ -28,23 +28,18 @@ export default function CheckoutPage({ cartItems = [], setCartItems = () => { } 
     useEffect(() => {
         const userInfo = localStorage.getItem('userInfo');
 
-        // ❌ Chưa đăng nhập → quay về login
-        if (!userInfo) {
-            navigate('/login', {
-                state: { from: location.pathname }
-            });
-            return;
+        // ✅ If logged in, load user info into form
+        if (userInfo) {
+            const user = JSON.parse(userInfo);
+
+            setFormData(prev => ({
+                ...prev,
+                fullName: user.name || '',
+                email: user.email || ''
+            }));
         }
-
-        // ✅ Đã đăng nhập → load info
-        const user = JSON.parse(userInfo);
-
-        setFormData(prev => ({
-            ...prev,
-            fullName: user.name || '',
-            email: user.email || ''
-        }));
-    }, [navigate, location.pathname]);
+        // ❌ If not logged in, allow user to continue (don't redirect)
+    }, []);
 
 
 
@@ -92,9 +87,17 @@ export default function CheckoutPage({ cartItems = [], setCartItems = () => { } 
     const handlePlaceOrder = async (e) => {
         e.preventDefault();
 
-        try {
-            const token = localStorage.getItem('token');
+        // Check if user is logged in before placing order
+        const token = localStorage.getItem('token');
+        if (!token) {
+            // Save current cart and redirect to login
+            navigate('/login', {
+                state: { from: '/checkout' }
+            });
+            return;
+        }
 
+        try {
             const orderData = {
                 orderItems: cartItems.map(item => ({
                     name: item.name,

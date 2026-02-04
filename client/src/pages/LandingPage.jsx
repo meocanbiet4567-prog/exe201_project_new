@@ -91,7 +91,7 @@ export default function LandingPage({ cartItems = [], setCartItems = () => { } }
                             <span className="text-green-600"> Xanh Cho Tương Lai</span>
                         </h1>
                         <p className="text-xl text-gray-600">
-                            Mỗi tờ giấy là một món quà cho thiên nhiên. Viết lời nhắn, trồng hạt giống, và xem cuộc sống nở hoa.
+                            Thiệp và lịch làm từ giấy gieo mầm - Gửi lời chúc, gieo hạt yêu thương, xem mầm xanh nở rộ.
                         </p>
                         <div className="flex gap-4">
                             <button onClick={() => navigate('/#products')} className="bg-green-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-green-700 transition transform hover:scale-105 shadow-lg flex items-center gap-2">
@@ -159,16 +159,16 @@ export default function LandingPage({ cartItems = [], setCartItems = () => { } }
             </section>
 
             {/* How It Works */}
-            <section className="py-20 max-w-6xl mx-auto px-4">
+            <section id="#how-it-works" className="py-20 max-w-6xl mx-auto px-4">
                 <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
                     Cách Sử Dụng
                 </h2>
                 <div className="grid md:grid-cols-4 gap-6">
                     {[
-                        { step: '1', title: 'Viết Lời Nhắn', desc: 'Ghi lại lời chúc, thông điệp của bạn' },
-                        { step: '2', title: 'Ngâm Nước', desc: 'Ngâm giấy vào nước trong 24 giờ' },
-                        { step: '3', title: 'Gieo Vào Đất', desc: 'Đặt giấy lên đất và phủ một lớp mỏng' },
-                        { step: '4', title: 'Tưới & Chờ Đợi', desc: 'Tưới nước đều đặn, sau 7-14 ngày sẽ nảy mầm' }
+                        { step: '1', title: 'Gửi Lời Chúc', desc: 'Viết lời nhắn ý nghĩa lên thiệp hoặc lịch' },
+                        { step: '2', title: 'Xé Nhỏ Giấy', desc: 'Sau khi sử dụng, xé giấy thành các mảnh nhỏ' },
+                        { step: '3', title: 'Gieo Xuống Đất', desc: 'Đặt giấy lên đất ẩm và phủ lớp đất mỏng (~5mm)' },
+                        { step: '4', title: 'Chăm Sóc', desc: 'Tưới nước đều đặn, sau 7-14 ngày mầm sẽ nảy' }
                     ].map((item, i) => (
                         <div key={i} className="relative">
                             <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition">

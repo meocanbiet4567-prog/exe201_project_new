@@ -409,7 +409,7 @@ const products = [
   },
   {
     name: 'Box Lịch A6',
-    price: 1500000,          // ✅ NUMBER
+    price: 150000,          // ✅ NUMBER
     originalPrice: 60000,  // ✅ NUMBER
     rating: 4.8,
     reviews: 124,

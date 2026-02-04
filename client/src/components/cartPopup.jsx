@@ -117,8 +117,19 @@ export default function CartPopup({ showCart, setShowCart, cartItems, setCartIte
                         </div>
                         <button
                             onClick={() => {
+                                // Check if user is logged in
+                                const token = localStorage.getItem('token');
                                 setShowCart(false);
-                                navigate('/checkout');
+
+                                if (!token) {
+                                    // Not logged in - redirect to login with return path
+                                    navigate('/login', {
+                                        state: { from: '/checkout' }
+                                    });
+                                } else {
+                                    // Logged in - go to checkout
+                                    navigate('/checkout');
+                                }
                             }}
                             className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition shadow-lg hover:shadow-xl"
                         >

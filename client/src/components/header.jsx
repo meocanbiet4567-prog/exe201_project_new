@@ -26,11 +26,7 @@ export default function Header({
     };
 
     const handleOpenCart = () => {
-        if (!user) {
-            navigate('/login', { state: { from: '/checkout' } });
-        } else {
-            setShowCart(true);
-        }
+        setShowCart(true);
     };
 
     return (
@@ -163,52 +159,21 @@ export default function Header({
                             >
                                 Sản Phẩm
                             </button>
-                            {/* {activeDropdown === 'products' && (
-                                <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg py-2 w-48 z-50">
-                                    <a
-                                        href="#"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            navigate('/products/thank-you-cards');
-                                        }}
-                                        className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition"
-                                    >
-                                        Thiệp Cảm Ơn
-                                    </a>
-                                    <a
-                                        href="#"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            navigate('/products/birthday-cards');
-                                        }}
-                                        className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition"
-                                    >
-                                        Thiệp Sinh Nhật
-                                    </a>
-                                    <a
-                                        href="#"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            navigate('/products/business-cards');
-                                        }}
-                                        className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition"
-                                    >
-                                        Thiệp Doanh Nghiệp
-                                    </a>
-                                    <a
-                                        href="#"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            navigate('/products/gift-sets');
-                                        }}
-                                        className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition"
-                                    >
-                                        Bộ Quà Tặng
-                                    </a>
-                                </div>
-                            )} */}
                         </div>
 
+                        <a
+                            href="#how-it-works"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                const section = document.getElementById('#how-it-works');
+                                if (section) {
+                                    section.scrollIntoView({ behavior: 'smooth' });
+                                }
+                            }}
+                            className="text-gray-700 hover:text-green-600 font-medium transition py-2"
+                        >
+                            Cách Sử Dụng
+                        </a>
                         {/* Về Chúng Tôi Dropdown */}
                         {/* <div
                             className="relative"
