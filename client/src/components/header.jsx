@@ -4,10 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import CartPopup from './cartPopup';
 import { useAuth } from '../context/AuthContext';
 
-export default function Header({ 
-    searchQuery, 
-    setSearchQuery, 
-    activeDropdown, 
+export default function Header({
+    searchQuery,
+    setSearchQuery,
+    activeDropdown,
     setActiveDropdown,
     cartItems,
     setCartItems,
@@ -39,12 +39,12 @@ export default function Header({
                 <div className="max-w-6xl mx-auto px-4 py-4">
                     <div className="flex justify-between items-center mb-4">
                         {/* Logo */}
-                        <div 
-                            className="flex items-center gap-2 cursor-pointer"
+                        <div
+                            className="flex items-center gap-1 cursor-pointer"
                             onClick={() => navigate('/')}
                         >
-                            <Leaf className="w-8 h-8 text-green-600" />
-                            <span className="text-2xl font-bold text-green-800">EcoSeed</span>
+                            <img src="https://res.cloudinary.com/dotom7ksq/image/upload/v1770211558/STICKER.SVG_zowvk3.png" alt="Logo" className="w-20 h-20" />
+                            {/* <span className="text-2xl font-bold text-green-800">Mầm</span> */}
                         </div>
 
                         {/* Search Bar */}
@@ -123,7 +123,7 @@ export default function Header({
                             )}
 
                             {/* CART */}
-                            <button 
+                            <button
                                 onClick={handleOpenCart}
                                 className="p-2 rounded-full hover:bg-green-50 relative transition"
                                 title="Giỏ hàng"
@@ -157,11 +157,13 @@ export default function Header({
                             onMouseEnter={() => setActiveDropdown('products')}
                             onMouseLeave={() => setActiveDropdown(null)}
                         >
-                            <button className="text-gray-700 hover:text-green-600 font-medium transition py-2 flex items-center gap-1">
+                            <button
+                                onClick={() => navigate('/#products')}
+                                className="text-gray-700 hover:text-green-600 font-medium transition py-2 flex items-center gap-1"
+                            >
                                 Sản Phẩm
-                                <ChevronDown className="w-4 h-4" />
                             </button>
-                            {activeDropdown === 'products' && (
+                            {/* {activeDropdown === 'products' && (
                                 <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg py-2 w-48 z-50">
                                     <a
                                         href="#"
@@ -204,64 +206,22 @@ export default function Header({
                                         Bộ Quà Tặng
                                     </a>
                                 </div>
-                            )}
+                            )} */}
                         </div>
 
                         {/* Về Chúng Tôi Dropdown */}
-                        <div
+                        {/* <div
                             className="relative"
                             onMouseEnter={() => setActiveDropdown('about')}
                             onMouseLeave={() => setActiveDropdown(null)}
                         >
-                            <button className="text-gray-700 hover:text-green-600 font-medium transition py-2 flex items-center gap-1">
+                            <button
+                                onClick={() => navigate('/about')}
+                                className="text-gray-700 hover:text-green-600 font-medium transition py-2 flex items-center gap-1"
+                            >
                                 Về Chúng Tôi
-                                <ChevronDown className="w-4 h-4" />
                             </button>
-                            {activeDropdown === 'about' && (
-                                <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg py-2 w-48 z-50">
-                                    <a
-                                        href="#"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            navigate('/about/story');
-                                        }}
-                                        className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition"
-                                    >
-                                        Câu Chuyện
-                                    </a>
-                                    <a
-                                        href="#"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            navigate('/about/mission');
-                                        }}
-                                        className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition"
-                                    >
-                                        Sứ Mệnh
-                                    </a>
-                                    <a
-                                        href="#"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            navigate('/about/team');
-                                        }}
-                                        className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition"
-                                    >
-                                        Đội Ngũ
-                                    </a>
-                                    <a
-                                        href="#"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            navigate('/about/news');
-                                        }}
-                                        className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition"
-                                    >
-                                        Tin Tức
-                                    </a>
-                                </div>
-                            )}
-                        </div>
+                        </div> */}
 
                         <a
                             href="/design-card"
@@ -289,7 +249,7 @@ export default function Header({
             </header>
 
             {/* Cart Popup Component */}
-            <CartPopup 
+            <CartPopup
                 showCart={showCart}
                 setShowCart={setShowCart}
                 cartItems={cartItems}

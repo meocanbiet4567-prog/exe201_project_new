@@ -5,6 +5,7 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 import { useNavigate } from 'react-router-dom';
 import { API_ENDPOINTS } from '../config';
+import { useLocation } from 'react-router-dom';
 export default function LandingPage({ cartItems = [], setCartItems = () => { } }) {
     const [email, setEmail] = useState('');
     const [submitted, setSubmitted] = useState(false);
@@ -52,7 +53,16 @@ export default function LandingPage({ cartItems = [], setCartItems = () => { } }
             }]);
         }
     };
+    const location = useLocation();
 
+    useEffect(() => {
+        if (location.hash) {
+            const element = document.querySelector(location.hash);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }, [location]);
 
 
     const navigate = useNavigate();
@@ -84,7 +94,7 @@ export default function LandingPage({ cartItems = [], setCartItems = () => { } }
                             Mỗi tờ giấy là một món quà cho thiên nhiên. Viết lời nhắn, trồng hạt giống, và xem cuộc sống nở hoa.
                         </p>
                         <div className="flex gap-4">
-                            <button className="bg-green-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-green-700 transition transform hover:scale-105 shadow-lg flex items-center gap-2">
+                            <button onClick={() => navigate('/#products')} className="bg-green-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-green-700 transition transform hover:scale-105 shadow-lg flex items-center gap-2">
                                 Mua Ngay
                                 <ArrowRight className="w-5 h-5" />
                             </button>
@@ -238,37 +248,7 @@ export default function LandingPage({ cartItems = [], setCartItems = () => { } }
                 </div>
             </section>
 
-            {/* Newsletter */}
-            <section className="py-20 max-w-4xl mx-auto px-4">
-                <div className="bg-white rounded-3xl p-12 shadow-xl text-center">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                        Nhận Ưu Đãi Đặc Biệt
-                    </h2>
-                    <p className="text-gray-600 mb-8">
-                        Đăng ký ngay để nhận giảm giá 20% cho đơn hàng đầu tiên!
-                    </p>
-                    <div className="flex gap-4 max-w-md mx-auto">
-                        <input
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            placeholder="Email của bạn"
-                            className="flex-1 px-6 py-3 rounded-full border-2 border-gray-300 focus:border-green-600 outline-none"
-                        />
-                        <button
-                            onClick={handleSubmit}
-                            className="bg-green-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-700 transition"
-                        >
-                            Đăng Ký
-                        </button>
-                    </div>
-                    {submitted && (
-                        <p className="mt-4 text-green-600 font-semibold animate-pulse">
-                            ✓ Cảm ơn bạn đã đăng ký!
-                        </p>
-                    )}
-                </div>
-            </section>
+
 
             {/* Footer */}
             <Footer />

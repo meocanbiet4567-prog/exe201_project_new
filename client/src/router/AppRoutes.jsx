@@ -9,6 +9,7 @@ import ContactPage from "../pages/ContactPage";
 import DesignCardPage from "../pages/DesignCardPage.jsx";
 import ProfilePage from '../pages/ProfilePage';
 import OrdersPage from '../pages/OrdersPage';
+import AboutUs from '../pages/AboutUs';
 import ScrollToTop from "./ScrollToTop";
 
 export default function AppRoutes({ cartItems, setCartItems }) {
@@ -25,6 +26,7 @@ export default function AppRoutes({ cartItems, setCartItems }) {
         <Route path="/design-card" element={<DesignCardPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/orders" element={<OrdersPage />} />
+        <Route path="/about" element={<AboutUs cartItems={cartItems} setCartItems={setCartItems} />} />
       </Routes>
     </>
   );

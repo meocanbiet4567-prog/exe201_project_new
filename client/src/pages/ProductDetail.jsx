@@ -217,9 +217,9 @@ export default function ProductDetail({ cartItems = [], setCartItems = () => { }
                                 </button> */}
                             </div>
 
-                            <button className="w-full bg-amber-500 text-white py-4 rounded-full font-semibold hover:bg-amber-600 transition">
+                            {/* <button className="w-full bg-amber-500 text-white py-4 rounded-full font-semibold hover:bg-amber-600 transition">
                                 Mua Ngay
-                            </button>
+                            </button> */}
                         </div>
 
                         <div className="grid grid-cols-3 gap-4 pt-6">
@@ -256,7 +256,7 @@ export default function ProductDetail({ cartItems = [], setCartItems = () => { }
                             >
                                 {tab === 'description' && 'Mô tả sản phẩm'}
                                 {tab === 'features' && 'Đặc điểm nổi bật'}
-                                {tab === 'specifications' && 'Thông số kỹ thuật'}
+                                {tab === 'specifications' && 'Nguyên liệu sản phẩm'}
                             </button>
                         ))}
                     </div>
@@ -264,11 +264,9 @@ export default function ProductDetail({ cartItems = [], setCartItems = () => { }
                     <div className="mt-8">
                         {activeTab === 'description' && (
                             <div className="prose max-w-none">
-                                <p className="text-gray-700 leading-relaxed text-lg">{product.description}</p>
+                                {/* <p className="text-gray-700 leading-relaxed text-lg">{product.description}</p> */}
                                 <p className="text-gray-700 leading-relaxed mt-4">
-                                    Sản phẩm này không chỉ là một tờ giấy thông thường, mà còn là một món quà ý nghĩa cho người thân,
-                                    bạn bè hoặc đối tác kinh doanh. Sau khi viết lời nhắn, bạn có thể gieo tờ giấy vào đất và chăm sóc
-                                    để xem những bông hoa xinh đẹp nở rộ.
+                                    {product.description}
                                 </p>
                             </div>
                         )}
@@ -285,7 +283,7 @@ export default function ProductDetail({ cartItems = [], setCartItems = () => { }
                         )}
 
                         {activeTab === 'specifications' && (
-                            <div className="grid md:grid-cols-2 gap-6">
+                            <div className="grid md:grid-cols-2 gap-5">
                                 {Object.entries(product.specifications).map(([key, value]) => (
                                     <div key={key} className="flex justify-between border-b border-gray-200 pb-3">
                                         <span className="font-medium text-gray-700">{key}</span>

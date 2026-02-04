@@ -15,10 +15,8 @@ export default function Footer() {
         </p>
 
         <div className="flex justify-center gap-8 text-sm text-gray-400">
-          <a className="hover:text-white">Về Chúng Tôi</a>
-          <a className="hover:text-white">Sản Phẩm</a>
-          <a className="hover:text-white">Liên Hệ</a>
-          <a className="hover:text-white">Chính Sách</a>
+          <a href="/#products" className="hover:text-white">Sản Phẩm</a>
+          <a href="/contact" className="hover:text-white">Liên Hệ</a>
         </div>
 
         <div className="mt-8 text-gray-500 text-sm">
